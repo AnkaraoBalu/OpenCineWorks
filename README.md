@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# OpenCineWorks website
 
-## Getting Started
+The marketing and download site for **OpenCineWorks**, the AI video editor for Windows.
+Built with Next.js (App Router), TypeScript and Tailwind CSS, exported as a static site.
 
-First, run the development server:
+## Run it
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # writes the static site to out/
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Publish
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+`npm run build` creates `out/` — plain HTML, CSS, JS and images. Upload that folder to any
+static host (Vercel, Netlify, Cloudflare Pages, GitHub Pages, S3 + CloudFront, Nginx).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## The download
 
-## Learn More
+The Download button links to `/downloads/OpenCineWorks-Setup-0.1.0-x64.exe`.
+Before publishing, put the Windows installer at:
 
-To learn more about Next.js, take a look at the following resources:
+```
+public/downloads/OpenCineWorks-Setup-0.1.0-x64.exe
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+For a new release, change `version` and `download` in `src/content/site.ts` (one place) and add
+the new installer to `public/downloads/`. To serve the installer from elsewhere (GitHub
+Releases, a CDN), set `download.href` to that full URL.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Structure
 
-## Deploy on Vercel
+```
+public/
+  brand/                  logo-mark.svg
+  downloads/              the Windows installer (added at release time)
+  images/screenshots/     real screenshots of the app
+src/
+  app/                    routes: / (home), /features, /download, /licenses, 404
+    globals.css           Tailwind theme: brand colours, fonts
+    layout.tsx            fonts, metadata, header and footer
+    icon.svg              favicon
+  components/
+    layout/               site-header, site-footer
+    sections/             hero, stats-strip, ai-editing, feature-showcase,
+                          record-and-live, download-cta, page-header
+    ui/                   button-link, container, logo, screenshot-frame, section-heading
+  content/                every word and number on the site
+    site.ts               name, version, platform, download link, navigation
+    features.ts           headline numbers, highlights, the full feature list
+    screenshots.ts        screenshot files, alt text and sizes
+    licenses.ts           third-party software and content licences
+  lib/                    small helpers
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+To change text, numbers or screenshots, edit `src/content/` — the components only lay it out.
+New screenshots go in `public/images/screenshots/` and are listed in `screenshots.ts`.
+# Donations
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The editor stays free; contributions are optional. The homepage and `/donations/`
+share the donation section in `src/components/sections/support-project.tsx`.
+
+Set `NEXT_PUBLIC_DONATION_URL` in `.env.local` to your verified HTTPS hosted
+donation page, then run `npm run build`. Set `NEXT_PUBLIC_SITE_URL` to the real
+website domain for social previews. Use `.env.example` as a starting point.
+
+Without a valid donation URL the site shows an honest "Contributions will open
+soon" message. It does not render a fake payment button. Checkout, available
+currencies, payment methods and receipts are handled by the linked provider.
+Do not add secret keys or collect card details in this static website.
+
