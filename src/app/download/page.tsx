@@ -19,7 +19,7 @@ const REQUIREMENTS = [
 
 const STEPS = [
   `Download ${site.download.fileName} below.`,
-  "Open it and follow the installer.",
+  "Open it. If Windows shows “Windows protected your PC”, click More info → Run anyway — it installs in a few seconds.",
   "Start OpenCineWorks and create your first project.",
   "Optional: Settings → AI engines → turn on “Let AI apps edit” to connect Claude or Codex.",
 ];
@@ -40,8 +40,14 @@ export default function DownloadPage() {
               {site.name} {site.version} for Windows
             </h2>
             <p className="mt-2 text-slate-600">64-bit installer · {site.download.fileName}</p>
+            <p className="mt-1 text-sm text-slate-500">
+              Free download ·{" "}
+              <a href={site.download.releases} className="underline hover:text-ink-900">
+                all versions
+              </a>
+            </p>
           </div>
-          <ButtonLink href={site.download.href} download size="lg">
+          <ButtonLink href={site.download.href} size="lg">
             <Download className="size-5" aria-hidden />
             Download for Windows
           </ButtonLink>

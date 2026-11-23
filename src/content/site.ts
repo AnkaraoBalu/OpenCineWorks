@@ -9,9 +9,14 @@ export const site = {
   version: "0.1.0",
   platform: "Windows 10 / 11 (64-bit)",
   download: {
-    /** The installer, served from `public/downloads/`. */
-    href: "/downloads/OpenCineWorks-Setup-0.1.0-x64.exe",
+    /**
+     * The installer is too big for Cloudflare (25 MB per file), so it lives on GitHub Releases.
+     * "latest/download" always points at the newest release: upload a new installer with the
+     * same file name and this link keeps working.
+     */
+    href: "https://github.com/AnkaraoBalu/OpenCineWorks/releases/latest/download/OpenCineWorks-Setup-0.1.0-x64.exe",
     fileName: "OpenCineWorks-Setup-0.1.0-x64.exe",
+    releases: "https://github.com/AnkaraoBalu/OpenCineWorks/releases",
   },
 } as const;
 
