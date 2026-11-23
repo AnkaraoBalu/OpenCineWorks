@@ -7,6 +7,8 @@ import { Container } from "@/components/ui/container";
 
 export const metadata: Metadata = {
   title: "Download",
+  alternates: { canonical: "/download/" },
+  openGraph: { url: "/download/" },
   description: `Download ${site.name} ${site.version} for ${site.platform}.`,
 };
 

@@ -5,6 +5,8 @@ import { Container } from "@/components/ui/container";
 
 export const metadata: Metadata = {
   title: "Licences & credits",
+  alternates: { canonical: "/licenses/" },
+  openGraph: { url: "/licenses/" },
   description: "Third-party software and free content in OpenCineWorks, and their licences.",
 };
 

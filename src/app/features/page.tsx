@@ -9,6 +9,8 @@ import { ScreenshotFrame } from "@/components/ui/screenshot-frame";
 
 export const metadata: Metadata = {
   title: "Features",
+  alternates: { canonical: "/features/" },
+  openGraph: { url: "/features/" },
   description:
     "AI editing with Claude and Codex, timeline editing, Telugu titles, captions, free music and sound effects, transitions, effects, screen recording and Go Live.",
 };

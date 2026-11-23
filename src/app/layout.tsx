@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Noto_Sans_Telugu } from "next/font/google";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
+import { StructuredData } from "@/components/seo/structured-data";
 import { site } from "@/content/site";
 import "./globals.css";
 
@@ -13,21 +14,43 @@ const notoTelugu = Noto_Sans_Telugu({
 });
 
 export const metadata: Metadata = {
-  ...(site.url ? { metadataBase: new URL(site.url) } : {}),
+  metadataBase: new URL(site.url),
   title: {
     default: `${site.name} — AI video editor for Windows`,
     template: `%s · ${site.name}`,
   },
   description: site.description,
   applicationName: site.name,
+  keywords: [...site.keywords],
+  category: "multimedia",
+  alternates: { canonical: "/" },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
+  },
   openGraph: {
     type: "website",
     siteName: site.name,
+    locale: "en_US",
+    url: "/",
     title: `${site.name} — AI video editor for Windows`,
-    description: site.tagline,
-    images: [{ url: "/images/screenshots/editor-overview.png", width: 1903, height: 945 }],
+    description: site.description,
+    images: [
+      {
+        url: "/images/screenshots/editor-overview.png",
+        width: 1903,
+        height: 945,
+        alt: `The ${site.name} editor with timeline, preview and media panel`,
+      },
+    ],
   },
-  twitter: { card: "summary_large_image" },
+  twitter: {
+    card: "summary_large_image",
+    title: `${site.name} — AI video editor for Windows`,
+    description: site.description,
+    images: ["/images/screenshots/editor-overview.png"],
+  },
 };
 
 export const viewport: Viewport = {
@@ -44,6 +67,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         >
           Skip to content
         </a>
+        <StructuredData />
         <SiteHeader />
         <main id="main" className="flex-1">
           {children}

@@ -2,7 +2,23 @@
 export const site = {
   name: "OpenCineWorks",
   /** The public address, e.g. https://opencineworks.com — set NEXT_PUBLIC_SITE_URL when you publish. */
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "",
+  url: (process.env.NEXT_PUBLIC_SITE_URL || "https://opencineworks.com").replace(/\/$/, ""),
+  /** Search keywords for the whole site. */
+  keywords: [
+    "AI video editor",
+    "video editor for Windows",
+    "Claude video editing",
+    "Codex video editing",
+    "Telugu video editor",
+    "Telugu titles",
+    "automatic captions",
+    "screen recorder",
+    "live streaming",
+    "free video editor",
+    "OpenCineWorks",
+  ],
+  /** When the content last changed (used in the sitemap); update when pages change. */
+  updated: "2026-11-23",
   tagline: "The AI video editor that Claude and Codex can edit with you.",
   description:
     "OpenCineWorks is a video editor for Windows. Ask Claude or Codex for an edit and it lands on your timeline, live — cuts, captions, Telugu titles, music, transitions, screen recording and live streaming.",
