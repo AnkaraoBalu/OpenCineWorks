@@ -10,7 +10,7 @@ export function DownloadCta() {
         <div className="relative overflow-hidden rounded-3xl bg-ink-950 px-6 py-16 text-center text-white sm:px-16">
           <div
             aria-hidden
-            className="pointer-events-none absolute inset-0 bg-[radial-gradient(50%_80%_at_50%_100%,rgb(91_92_246/0.45),transparent_70%)]"
+            className="pointer-events-none absolute inset-0 bg-[radial-gradient(50%_80%_at_50%_100%,rgb(48_224_0/0.45),transparent_70%)]"
           />
           <div className="relative">
             <h2 className="text-3xl font-bold tracking-tight sm:text-5xl">Start editing with OpenCineWorks</h2>

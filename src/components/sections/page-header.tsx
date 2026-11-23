@@ -15,7 +15,7 @@ export function PageHeader({
     <section className="relative overflow-hidden bg-ink-950 py-20 text-white sm:py-24">
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(50%_70%_at_50%_0%,rgb(91_92_246/0.4),transparent_70%)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(50%_70%_at_50%_0%,rgb(48_224_0/0.4),transparent_70%)]"
       />
       <Container className="relative text-center">
         <p className="text-sm font-bold tracking-widest text-accent-500 uppercase">{eyebrow}</p>

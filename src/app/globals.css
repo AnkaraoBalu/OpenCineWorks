@@ -2,11 +2,11 @@
 
 /* OpenCineWorks brand: indigo for the brand, green for actions (as in the app). */
 @theme {
-  --color-brand-50: #eef0ff;
-  --color-brand-400: #7b7cff;
-  --color-brand-500: #5b5cf6;
-  --color-brand-600: #4243df;
-  --color-brand-900: #1b1d5c;
+  --color-brand-50: #effee6;
+  --color-brand-400: #5ef01f;
+  --color-brand-500: #22b800;
+  --color-brand-600: #168a00;
+  --color-brand-900: #0a3d12;
 
   --color-accent-50: #f0fdf4;
   --color-accent-100: #dcfce7;

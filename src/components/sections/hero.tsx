@@ -11,7 +11,7 @@ export function Hero() {
       {/* Soft brand glow behind the headline. */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_50%_at_50%_0%,rgb(91_92_246/0.45),transparent_70%),radial-gradient(35%_35%_at_85%_15%,rgb(34_197_94/0.18),transparent_70%)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_50%_at_50%_0%,rgb(48_224_0/0.45),transparent_70%),radial-gradient(35%_35%_at_85%_15%,rgb(34_197_94/0.18),transparent_70%)]"
       />
       <div
         aria-hidden
@@ -25,7 +25,7 @@ export function Hero() {
         </p>
         <h1 className="mx-auto mt-7 max-w-4xl text-4xl font-extrabold tracking-tight text-balance sm:text-6xl lg:text-7xl">
           Your story. Your timeline.{" "}
-          <span className="bg-gradient-to-r from-brand-400 via-[#a5a6ff] to-accent-500 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-brand-400 via-[#b6ff8a] to-accent-500 bg-clip-text text-transparent">
             Your free video editor.
           </span>
         </h1>
