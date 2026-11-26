@@ -35,6 +35,14 @@ export function SiteFooter() {
           <p className="mt-3 text-sm">
             Version {site.version} · {site.platform}
           </p>
+          {site.contact.phone && (
+            <p className="mt-3 text-sm">
+              Help:{" "}
+              <a href={`tel:${site.contact.phone}`} className="font-medium text-slate-200 transition hover:text-white">
+                {site.contact.phoneDisplay || site.contact.phone}
+              </a>
+            </p>
+          )}
         </div>
         {COLUMNS.map((column) => (
           <div key={column.title}>

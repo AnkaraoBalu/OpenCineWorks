@@ -8,7 +8,7 @@ import { Container } from "@/components/ui/container";
  * src/content/site.ts, so no empty or fake contact details are ever published.
  */
 export function ContactBand() {
-  const { phone, phoneDisplay } = site.contact;
+  const { phone, phoneDisplay, whatsapp } = site.contact;
   if (!phone) return null;
   const digits = phone.replace(/\D/g, "");
   return (
@@ -20,14 +20,16 @@ export function ContactBand() {
             Need help with your edit?
           </h2>
           <p className="mt-4 text-lg text-slate-600">
-            Call or message on WhatsApp for help getting started, questions about features, or ideas for what to build next.
+            Call or message for help getting started, questions about features, or ideas for what to build next.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <ButtonLink href={`https://wa.me/${digits}`} size="lg" external>
-              <MessageCircle className="size-5" aria-hidden />
-              WhatsApp
-            </ButtonLink>
-            <ButtonLink href={`tel:${phone}`} size="lg" variant="secondary" external>
+            {whatsapp && (
+              <ButtonLink href={`https://wa.me/${digits}`} size="lg" external>
+                <MessageCircle className="size-5" aria-hidden />
+                WhatsApp
+              </ButtonLink>
+            )}
+            <ButtonLink href={`tel:${phone}`} size="lg" variant={whatsapp ? "secondary" : "primary"} external>
               <Phone className="size-5" aria-hidden />
               {phoneDisplay || phone}
             </ButtonLink>

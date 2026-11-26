@@ -27,8 +27,10 @@ export const site = {
    * Use the international format, e.g. "+919876543210".
    */
   contact: {
-    phone: "" as string,
-    phoneDisplay: "" as string,
+    phone: "+919949170530" as string,
+    phoneDisplay: "+91 99491 70530" as string,
+    /** Set to false if this number is not on WhatsApp: the WhatsApp button is then hidden. */
+    whatsapp: true as boolean,
   },
   version: "0.1.0",
   platform: "Windows 10 / 11 (64-bit)",
