@@ -78,6 +78,24 @@ export function LandingPageView({ page }: { page: LandingPage }) {
             </section>
           ))}
 
+          {page.video && (
+            <section aria-labelledby="video-title">
+              <h2 id="video-title" className="text-2xl font-bold tracking-tight text-ink-900 sm:text-3xl">
+                Watch it in action
+              </h2>
+              <div className="mt-5 aspect-video overflow-hidden rounded-2xl bg-ink-950 ring-1 ring-black/10">
+                <iframe
+                  src={`https://www.youtube-nocookie.com/embed/${page.video.id}`}
+                  title={page.video.title}
+                  loading="lazy"
+                  allow="encrypted-media; picture-in-picture"
+                  allowFullScreen
+                  className="size-full"
+                />
+              </div>
+            </section>
+          )}
+
           {page.native && (
             <section lang={page.native.lang} className="rounded-2xl bg-brand-50 p-7 ring-1 ring-brand-500/20">
               <h2 className="text-2xl font-bold text-ink-900">{page.native.title}</h2>
@@ -104,6 +122,8 @@ export function LandingPageView({ page }: { page: LandingPage }) {
               ))}
             </div>
           </section>
+
+          {page.disclaimer && <p className="text-xs leading-relaxed text-slate-500">{page.disclaimer}</p>}
 
           {related.length > 0 && (
             <nav aria-labelledby="related-title">

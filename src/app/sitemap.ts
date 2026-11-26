@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { blogPosts } from "@/content/blog";
 import { landingPages } from "@/content/landing-pages";
 import { site } from "@/content/site";
 
@@ -10,7 +11,9 @@ const PAGES: { path: string; priority: number; changeFrequency: "weekly" | "mont
   { path: "/download/", priority: 0.9, changeFrequency: "weekly" },
   { path: "/features/", priority: 0.8, changeFrequency: "monthly" },
   { path: "/donations/", priority: 0.4, changeFrequency: "monthly" },
+  { path: "/blog/", priority: 0.7, changeFrequency: "weekly" },
   { path: "/licenses/", priority: 0.3, changeFrequency: "yearly" },
+  { path: "/privacy/", priority: 0.2, changeFrequency: "yearly" },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -19,7 +22,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
     changeFrequency: "monthly" as const,
   }));
-  return [...PAGES.slice(0, 2), ...landing, ...PAGES.slice(2)].map(({ path, priority, changeFrequency }) => ({
+  const posts = blogPosts.map((post) => ({
+    path: `/blog/${post.slug}/`,
+    priority: 0.6,
+    changeFrequency: "monthly" as const,
+  }));
+  return [...PAGES.slice(0, 2), ...landing, ...PAGES.slice(2), ...posts].map(({ path, priority, changeFrequency }) => ({
     url: `${site.url}${path}`,
     lastModified: site.updated,
     changeFrequency,

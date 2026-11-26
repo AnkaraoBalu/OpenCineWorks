@@ -1,3 +1,4 @@
+import { moreLandingPages } from "./landing-pages-more";
 import { screenshots, type Screenshot } from "./screenshots";
 
 /**
@@ -30,11 +31,15 @@ export interface LandingPage {
   /** A paragraph in the visitor's own language, for people who search in it. */
   native?: { lang: string; title: string; body: string };
   faq: { q: string; a: string }[];
+  /** A YouTube demo video to embed (its id, e.g. "dQw4w9WgXcQ"). Leave out until a real demo exists. */
+  video?: { id: string; title: string };
+  /** A small-print note shown under the page, e.g. about trademarks in comparisons. */
+  disclaimer?: string;
   /** Slugs of other landing pages to link to. */
   related: string[];
 }
 
-export const landingPages: LandingPage[] = [
+const coreLandingPages: LandingPage[] = [
   {
     slug: "telugu-video-editor",
     label: "Telugu video editor",
@@ -406,5 +411,7 @@ export const landingPages: LandingPage[] = [
     related: ["ai-video-editor", "auto-captions-subtitles", "screen-recorder-and-screenshots"],
   },
 ];
+
+export const landingPages: LandingPage[] = [...coreLandingPages, ...moreLandingPages];
 
 export const landingBySlug = Object.fromEntries(landingPages.map((page) => [page.slug, page]));

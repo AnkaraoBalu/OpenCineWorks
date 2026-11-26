@@ -17,11 +17,17 @@ const COLUMNS = [
   },
   {
     title: "Use cases",
-    links: landingPages.map((page) => ({ label: page.label, href: `/${page.slug}/` })),
+    links: [
+      ...landingPages.slice(0, 8).map((page) => ({ label: page.label, href: `/${page.slug}/` })),
+      { label: "All guides", href: "/blog/" },
+    ],
   },
   {
     title: "Legal",
-    links: [{ label: "Licences & credits", href: "/licenses/" }],
+    links: [
+      { label: "Licences & credits", href: "/licenses/" },
+      { label: "Privacy policy", href: "/privacy/" },
+    ],
   },
 ];
 

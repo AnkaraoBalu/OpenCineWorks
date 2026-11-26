@@ -6,7 +6,9 @@ import { Container } from "@/components/ui/container";
 import { donationUrl } from "@/content/support";
 
 const amounts = [100, 300, 500, 1000];
-export function SupportProject() {
+/** The home page already has its own h1, so this heading is an h2 unless the page passes "h1". */
+export function SupportProject({ headingLevel = "h2" }: { headingLevel?: "h1" | "h2" }) {
+  const Heading = headingLevel;
   const [amount, setAmount] = useState("300");
   const dialog = useRef<HTMLDialogElement>(null);
   const valid = Number.isInteger(Number(amount)) && Number(amount) >= 1 && Number(amount) <= 100000;
@@ -17,7 +19,7 @@ export function SupportProject() {
         <div className="grid items-start gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20">
           <div>
             <div className="mb-8 flex size-16 items-center justify-center rounded-2xl border border-white/15 bg-white/5"><Film size={30} className="text-indigo-300" aria-hidden /></div>
-            <h1 id="donations-title" className="max-w-xl text-5xl leading-[1.08] font-semibold tracking-tight sm:text-6xl">Great stories<br />deserve <span className="text-indigo-300">free tools.</span></h1>
+            <Heading id="donations-title" className="max-w-xl text-5xl leading-[1.08] font-semibold tracking-tight sm:text-6xl">Great stories<br />deserve <span className="text-indigo-300">free tools.</span></Heading>
             <p className="mt-7 max-w-lg text-lg leading-relaxed text-slate-300">OpenCineWorks is free. Your donation gives us more time to make the editor better for everyone who has a story to tell.</p>
             <div className="mt-9 flex items-center gap-3 text-indigo-200"><Heart size={20} aria-hidden /><p>No subscriptions. No feature paywalls.</p></div>
             <div className="mt-12 border-t border-white/10 pt-7">

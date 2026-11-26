@@ -19,6 +19,12 @@ export const site = {
   ],
   /** When the content last changed (used in the sitemap); update when pages change. */
   updated: "2026-11-26",
+  /** The home page title and description in search results. */
+  metaTitle: "Free AI Video Editor for Windows | OpenCineWorks",
+  metaDescription:
+    "Download OpenCineWorks, a free video editor for Windows with Claude & Codex AI integration, auto captions, Telugu fonts, music, effects and more.",
+  /** Google Analytics 4 measurement ID (looks like G-XXXXXXXXXX). Leave empty to load no analytics. */
+  analytics: { ga4Id: "" as string },
   tagline: "The AI video editor that Claude and Codex can edit with you.",
   description:
     "OpenCineWorks is a video editor for Windows. Ask Claude or Codex for an edit and it lands on your timeline, live — cuts, captions, Telugu titles, music, transitions, screen recording and live streaming.",
@@ -49,6 +55,7 @@ export const site = {
 export const navigation = [
   { label: "Donations", href: "/donations/" },
   { label: "Features", href: "/features/" },
+  { label: "Guides", href: "/blog/" },
   { label: "AI editing", href: "/#ai-editing" },
   { label: "Go Live", href: "/#go-live" },
   { label: "Download", href: "/download/" },

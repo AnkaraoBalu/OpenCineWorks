@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Noto_Sans_Telugu } from "next/font/google";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
+import { Analytics } from "@/components/seo/analytics";
 import { StructuredData } from "@/components/seo/structured-data";
 import { site } from "@/content/site";
 import "./globals.css";
@@ -16,10 +17,10 @@ const notoTelugu = Noto_Sans_Telugu({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} — AI video editor for Windows`,
+    default: site.metaTitle,
     template: `%s · ${site.name}`,
   },
-  description: site.description,
+  description: site.metaDescription,
   applicationName: site.name,
   keywords: [...site.keywords],
   category: "multimedia",
@@ -34,8 +35,8 @@ export const metadata: Metadata = {
     siteName: site.name,
     locale: "en_US",
     url: "/",
-    title: `${site.name} — AI video editor for Windows`,
-    description: site.description,
+    title: site.metaTitle,
+    description: site.metaDescription,
     images: [
       {
         url: "/images/screenshots/editor-overview.png",
@@ -47,8 +48,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.name} — AI video editor for Windows`,
-    description: site.description,
+    title: site.metaTitle,
+    description: site.metaDescription,
     images: ["/images/screenshots/editor-overview.png"],
   },
 };
@@ -68,6 +69,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           Skip to content
         </a>
         <StructuredData />
+        <Analytics />
         <SiteHeader />
         <main id="main" className="flex-1">
           {children}

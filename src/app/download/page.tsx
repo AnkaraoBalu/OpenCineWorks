@@ -6,10 +6,10 @@ import { ButtonLink } from "@/components/ui/button-link";
 import { Container } from "@/components/ui/container";
 
 export const metadata: Metadata = {
-  title: "Download",
+  title: "Free Video Editor Download for Windows",
   alternates: { canonical: "/download/" },
   openGraph: { url: "/download/" },
-  description: `Download ${site.name} ${site.version} for ${site.platform}.`,
+  description: `Download ${site.name} ${site.version}, a free video editor for ${site.platform}. One-click installer, no account, no watermark by default.`,
 };
 
 const REQUIREMENTS = [

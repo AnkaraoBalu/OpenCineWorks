@@ -36,10 +36,13 @@ export function SiteHeader() {
             );
           })}
         </nav>
-        <ButtonLink href="/download/" size="sm" className="hidden md:inline-flex">
-          <Download className="size-4" aria-hidden />
-          Download
-        </ButtonLink>
+        {/* A wrapper hides it on phones: the button itself is display:inline-flex. */}
+        <div className="hidden md:block">
+          <ButtonLink href="/download/" size="sm">
+            <Download className="size-4" aria-hidden />
+            Download
+          </ButtonLink>
+        </div>
         <button
           type="button"
           className="ml-auto shrink-0 rounded-lg p-2 text-ink-900 ring-1 ring-black/10 md:hidden"
