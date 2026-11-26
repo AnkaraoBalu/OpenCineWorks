@@ -23,6 +23,15 @@ export function StructuredData() {
         name: site.name,
         url: `${site.url}/`,
         logo: `${site.url}/brand/logo-mark.png`,
+        ...(site.contact.phone
+          ? {
+              contactPoint: {
+                "@type": "ContactPoint",
+                telephone: site.contact.phone,
+                contactType: "customer support",
+              },
+            }
+          : {}),
       },
       {
         "@type": "SoftwareApplication",

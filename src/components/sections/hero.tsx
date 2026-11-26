@@ -26,7 +26,7 @@ export function Hero() {
         <h1 className="mx-auto mt-7 max-w-4xl text-4xl font-extrabold tracking-tight text-balance sm:text-6xl lg:text-7xl">
           Your story. Your timeline.{" "}
           <span className="bg-gradient-to-r from-brand-400 via-[#b6ff8a] to-accent-500 bg-clip-text text-transparent">
-            Your free video editor.
+            Your free AI video editor.
           </span>
         </h1>
         <p className="mx-auto mt-6 max-w-2xl text-lg text-pretty text-slate-300 sm:text-xl">

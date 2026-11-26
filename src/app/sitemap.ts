@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { landingPages } from "@/content/landing-pages";
 import { site } from "@/content/site";
 
 // The site is exported as plain files, so the sitemap is written once at build time.
@@ -13,7 +14,12 @@ const PAGES: { path: string; priority: number; changeFrequency: "weekly" | "mont
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return PAGES.map(({ path, priority, changeFrequency }) => ({
+  const landing = landingPages.map((page) => ({
+    path: `/${page.slug}/`,
+    priority: 0.8,
+    changeFrequency: "monthly" as const,
+  }));
+  return [...PAGES.slice(0, 2), ...landing, ...PAGES.slice(2)].map(({ path, priority, changeFrequency }) => ({
     url: `${site.url}${path}`,
     lastModified: site.updated,
     changeFrequency,

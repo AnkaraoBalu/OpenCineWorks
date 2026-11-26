@@ -19,6 +19,7 @@ export function ButtonLink({
   variant = "primary",
   size = "md",
   download,
+  external,
   className,
 }: {
   href: string;
@@ -26,6 +27,8 @@ export function ButtonLink({
   variant?: Variant;
   size?: "sm" | "md" | "lg";
   download?: boolean;
+  /** tel:, mailto: and https: links open as normal anchors. */
+  external?: boolean;
   className?: string;
 }) {
   const classes = cn(
@@ -36,6 +39,13 @@ export function ButtonLink({
     VARIANTS[variant],
     className,
   );
+  if (external) {
+    return (
+      <a href={href} className={classes} {...(href.startsWith("http") ? { target: "_blank", rel: "noopener" } : {})}>
+        {children}
+      </a>
+    );
+  }
   if (download) {
     return (
       <a href={href} download className={classes}>

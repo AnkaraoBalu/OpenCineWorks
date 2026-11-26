@@ -18,10 +18,18 @@ export const site = {
     "OpenCineWorks",
   ],
   /** When the content last changed (used in the sitemap); update when pages change. */
-  updated: "2026-11-23",
+  updated: "2026-11-26",
   tagline: "The AI video editor that Claude and Codex can edit with you.",
   description:
     "OpenCineWorks is a video editor for Windows. Ask Claude or Codex for an edit and it lands on your timeline, live — cuts, captions, Telugu titles, music, transitions, screen recording and live streaming.",
+  /**
+   * Public contact details shown on the site. Leave the phone empty to hide every contact section.
+   * Use the international format, e.g. "+919876543210".
+   */
+  contact: {
+    phone: "" as string,
+    phoneDisplay: "" as string,
+  },
   version: "0.1.0",
   platform: "Windows 10 / 11 (64-bit)",
   download: {

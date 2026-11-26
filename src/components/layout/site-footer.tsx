@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { landingPages } from "@/content/landing-pages";
 import { site } from "@/content/site";
 import { Container } from "@/components/ui/container";
 import { Logo } from "@/components/ui/logo";
@@ -15,6 +16,10 @@ const COLUMNS = [
     ],
   },
   {
+    title: "Use cases",
+    links: landingPages.map((page) => ({ label: page.label, href: `/${page.slug}/` })),
+  },
+  {
     title: "Legal",
     links: [{ label: "Licences & credits", href: "/licenses/" }],
   },
@@ -23,7 +28,7 @@ const COLUMNS = [
 export function SiteFooter() {
   return (
     <footer className="bg-ink-950 text-slate-400">
-      <Container className="grid gap-10 py-14 md:grid-cols-[2fr_1fr_1fr]">
+      <Container className="grid gap-10 py-14 md:grid-cols-[2fr_1fr_1.3fr_1fr]">
         <div>
           <Logo tone="dark" />
           <p className="mt-4 max-w-sm text-sm leading-relaxed">{site.tagline}</p>
